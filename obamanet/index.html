@@ -37,7 +37,7 @@
   <hr />
     <h1 id="section">Abstract</h1>
     <p style="text-align:justify">
-      We present <em>ObamaNet</em>, a model that generates photo-realistic lip-sync videos from any new text. <em>ObamaNet</em> consists of three components: a text-to-speech network, a conditional lip generator and a conditional image in-painter. We use <strong>Char2Wav</strong> as the text-to-speech network. We use a time-delayed LSTM to generate mouth-keypoints synced to the audio. Also, we use <strong>Pix2Pix</strong> to generate the video frames conditioned on the keypoints. Unlike similar works, <em>ObamaNet</em> consists only of fully trainable neural modules and no traditional computer graphics methods.
+  We present <strong>ObamaNet</strong>, the first architecture that generates both audio and synchronized photo-realistic lip-sync videos from any new text. Contrary to other published lip-sync approaches, ours is only composed of fully trainable neural modules and does not rely on any traditional computer graphics methods. More precisely, we use three main modules: a text-to-speech network based on <strong>Char2Wav</strong>, a time-delayed LSTM to generate mouth-keypoints synced to the audio, and a network based on <strong>Pix2Pix</strong> to generate the video frames conditioned on the keypoints.
   <hr />
 
   <h1 id="section">Results</h1>
