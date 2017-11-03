@@ -1,1 +1,715 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en-us">
+<script>
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-89688406-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Char2Wav: End-to-End Speech Synthesis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/cayman.css">
+</head>
+
+<body>
+  <section class="page-header">
+    <img src="assets/mila_logo_fr.svg">
+    <h1 class="project-name">Char2Wav: End-to-End Speech Synthesis</h1>
+    <h2 class="project-tagline">Jose Sotelo, Soroush Mehri, Kundan Kumar, João Felipe Santos, Kyle Kastner, Aaron Courville, Yoshua Bengio</h2>
+    <a href="https://openreview.net/forum?id=B1VWyySKx" class="btn">Read on OpenReview</a>
+    <a href="https://github.com/sotelo/parrot" class="btn">View on GitHub</a>
+  </section>
+
+
+  <section class="main-content">
+
+<hr />
+  <h1 id="section">Abstract</h1>
+  <p style="text-align:justify">We present Char2Wav, an end-to-end model for speech synthesis. Char2Wav has two components: a <strong>reader</strong> and a <strong>neural vocoder</strong>. The <em>reader</em> is an encoder-decoder model with attention. The encoder is a bidirectional recurrent neural network that accepts text or phonemes as inputs, while the decoder is a recurrent neural network (RNN) with attention that produces vocoder acoustic features. <em>Neural vocoder</em> refers to a conditional extension of SampleRNN which generates raw waveform samples from intermediate representations. Unlike traditional models for speech synthesis, Char2Wav learns to produce audio directly from text.</p>
+<hr />
+
+<h1 id="section">Results</h1>
+
+<h3 id="section">Comments</h3>
+<ul>
+  <li>For now, we only have samples for <strong>Char2Wav</strong> in Spanish. We will complete the website with more models as they finish training. Unfortunately, we don't have unlimited GPU power :'( </li>
+  <li><strong> Samples are not cherrypicked.</strong> We select 10 random sentences from the test set that the model has never seen.</li>
+  <li>Some of the samples fail to complete (check the last sample from Blizzard). Our intuition is that this is caused by a failure in the attention. In general, this model is hard to train and requires a few tricks. More details are coming soon.</li>
+</ul>
+
+<hr />
+
+<h2>Mexican Spanish</h2>
+  <ul>
+    <h2>Dimex-100</h2>
+    
+    <ul>Originals</ul>
+
+    <audio controls>
+      <source src="./files/wav/dimex/raw_best_bidirectional_text_0.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/raw_best_bidirectional_text_1.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/raw_best_bidirectional_text_2.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/raw_best_bidirectional_text_3.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/raw_best_bidirectional_text_4.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/raw_best_bidirectional_text_5.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/raw_best_bidirectional_text_6.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/raw_best_bidirectional_text_7.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/raw_best_bidirectional_text_8.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/raw_best_bidirectional_text_9.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <ul><br>Originals (after vocoder processing).</ul>
+
+    <audio controls>
+      <source src="./files/wav/dimex/original_best_bidirectional_text_0.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/original_best_bidirectional_text_1.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/original_best_bidirectional_text_2.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/original_best_bidirectional_text_3.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/original_best_bidirectional_text_4.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/original_best_bidirectional_text_5.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/original_best_bidirectional_text_6.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/original_best_bidirectional_text_7.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/original_best_bidirectional_text_8.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/original_best_bidirectional_text_9.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <ul><br>Reader over characters with vocoder output.</ul>
+
+    <audio controls>
+      <source src="./files/wav/dimex/best_bidirectional_text_0.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/best_bidirectional_text_1.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/best_bidirectional_text_2.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/best_bidirectional_text_3.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/best_bidirectional_text_4.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/best_bidirectional_text_5.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/best_bidirectional_text_6.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/best_bidirectional_text_7.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/best_bidirectional_text_8.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/best_bidirectional_text_9.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+<ul><br>Char2Wav.</ul>
+
+    <audio controls>
+      <source src="./files/wav/dimex/sample_best_char2wav_0.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/sample_best_char2wav_1.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/sample_best_char2wav_2.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/sample_best_char2wav_3.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/sample_best_char2wav_4.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/sample_best_char2wav_5.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/sample_best_char2wav_6.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/sample_best_char2wav_7.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/sample_best_char2wav_8.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/sample_best_char2wav_9.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+<ul><br>Neural Vocoder using ground-truth vocoder parameters.</ul>
+
+    <audio controls>
+      <source src="./files/wav/dimex/data_vocoder_features_0.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/data_vocoder_features_1.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/data_vocoder_features_2.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/data_vocoder_features_3.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/data_vocoder_features_4.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/data_vocoder_features_5.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/data_vocoder_features_6.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/data_vocoder_features_7.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/data_vocoder_features_8.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+      <source src="./files/wav/dimex/data_vocoder_features_9.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+
+  </ul>
+</ul>
+<hr />
+
+  <h2>English</h2>
+    <ul>
+      <h2>VCTK</h2>
+
+      <ul>Originals (after vocoder processing).</ul>
+
+      <audio controls>
+        <source src="./files/wav/vctk/original_best_bidirectional_encoder_0.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/original_best_bidirectional_encoder_1.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/original_best_bidirectional_encoder_2.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/original_best_bidirectional_encoder_3.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/original_best_bidirectional_encoder_4.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/original_best_bidirectional_encoder_5.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/original_best_bidirectional_encoder_6.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/original_best_bidirectional_encoder_7.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/original_best_bidirectional_encoder_8.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/original_best_bidirectional_encoder_9.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <ul><br>Reader over phonemes with vocoder output.</ul>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_encoder_0.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_encoder_1.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_encoder_2.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_encoder_3.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_encoder_4.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_encoder_5.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_encoder_6.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_encoder_7.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_encoder_8.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_encoder_9.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+
+      <ul><br>Reader over characters with vocoder output.</ul>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_text_0.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_text_1.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_text_2.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_text_3.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_text_4.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_text_5.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_text_6.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_text_7.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_text_8.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/vctk/best_bidirectional_text_9.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+    </ul>
+
+    <ul>
+      <h2>Blizzard</h2>
+      
+      <ul>Originals (after vocoder processing).</ul>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/original_best_bidirectional_encoder_0.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/original_best_bidirectional_encoder_1.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/original_best_bidirectional_encoder_2.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/original_best_bidirectional_encoder_3.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/original_best_bidirectional_encoder_4.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/original_best_bidirectional_encoder_5.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/original_best_bidirectional_encoder_6.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/original_best_bidirectional_encoder_7.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/original_best_bidirectional_encoder_8.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/original_best_bidirectional_encoder_9.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+
+      <ul><br>Reader over phonemes with vocoder output.</ul>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/best_bidirectional_encoder_0.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/best_bidirectional_encoder_1.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/best_bidirectional_encoder_2.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/best_bidirectional_encoder_3.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/best_bidirectional_encoder_4.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/best_bidirectional_encoder_5.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/best_bidirectional_encoder_6.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/best_bidirectional_encoder_7.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/best_bidirectional_encoder_8.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/blizzard/best_bidirectional_encoder_9.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+    </ul>
+  </ul>
+<hr />
+
+<h2>German</h2>
+    <ul>
+      <h2>Pavoque</h2>
+      
+      <ul>Originals (after vocoder processing).</ul>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/original_best_bidirectional_text_0.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/original_best_bidirectional_text_1.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/original_best_bidirectional_text_2.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/original_best_bidirectional_text_3.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/original_best_bidirectional_text_4.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/original_best_bidirectional_text_5.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/original_best_bidirectional_text_6.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/original_best_bidirectional_text_7.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/original_best_bidirectional_text_8.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/original_best_bidirectional_text_9.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <ul><br>Reader over characters with vocoder output.</ul>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/best_bidirectional_text_0.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/best_bidirectional_text_1.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/best_bidirectional_text_2.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/best_bidirectional_text_3.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/best_bidirectional_text_4.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/best_bidirectional_text_5.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/best_bidirectional_text_6.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/best_bidirectional_text_7.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/best_bidirectional_text_8.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="./files/wav/pavoque/best_bidirectional_text_9.wav" type="audio/wav">
+      Your browser does not support the audio element.
+      </audio>
+    </ul>
+  </ul>
+
+<footer class="site-footer">
+  <span class="site-footer-credits"><a href="https://mila.umontreal.ca">MILA: Montreal Institute for Learning Algorithms</a></span>
+  <span class="site-footer-owner"><a href="">Char2Wav</a> is maintained by <a href="https://josesotelo.com">Jose Sotelo</a>.</span>
+</footer>
+
+
+  </section>
+
+  </body>
+</html>
