@@ -27,16 +27,33 @@
     <img src="assets/mila_logo_fr.svg">
     <h1 class="project-name">ObamaNet: Photo-realistic lip-sync from text</h1>
     <h2 class="project-tagline">Rithesh Kumar, Jose Sotelo, Kundan Kumar, Alexandre de Brebisson, Yoshua Bengio</h2>
-    <a href="https://www.overleaf.com/11970794qthydskdbrcx#/45405306/" class="btn">Read on Arxiv</a>
-    <!-- <a href="https://github.com/sotelo/parrot" class="btn">View on GitHub</a> -->
+    <a href="" class="btn">Read on Arxiv</a>
+    <a href="" class="btn">View on GitHub</a>
   </section>
 
   <section class="main-content">
 
+  <hr />
+    <h1 id="section">Abstract</h1>
+    <p style="text-align:justify">
+      We present <em>ObamaNet</em>, a model that generates photo-realistic lip-sync videos from any new text. <em>ObamaNet</em> consists of three components: a text-to-speech network, a conditional lip generator and a conditional image in-painter. We use <strong>Char2Wav</strong> as the text-to-speech network. We use a time-delayed LSTM to generate mouth-keypoints synced to the audio. Also, we use <strong>Pix2Pix</strong> to generate the video frames conditioned on the keypoints. Unlike similar works, <em>ObamaNet</em> consists only of fully trainable neural modules and no traditional computer graphics methods.
+  <hr />
+
+  <h1 id="section">Results</h1>
+
+  <h3 id="section">Comments</h3>
+  <ul>
+    <li>For now, we only have samples for <strong>Char2Wav</strong> in Spanish. We will complete the website with more models as they finish training. Unfortunately, we don't have unlimited GPU power :'( </li>
+    <li><strong> Samples are not cherrypicked.</strong> We select 10 random sentences from the test set that the model has never seen.</li>
+    <li>Some of the samples fail to complete (check the last sample from Blizzard). Our intuition is that this is caused by a failure in the attention. In general, this model is hard to train and requires a few tricks. More details are coming soon.</li>
+  </ul>
+
+  <hr />
+
 <footer class="site-footer">
-  <span class="site-footer-credits"><a href="https://mila.umontreal.ca">MILA: Montreal Institute for Learning Algorithms</a></span>
-  <span class="site-footer-owner"><a href="">Char2Wav</a> is maintained by <a href="https://josesotelo.com">Jose Sotelo</a>.</span>
-</footer>
+  <span class="site-footer-credits"><a href="https://mila.quebec">MILA: Montreal Institute for Learning Algorithms</a></span>
+<!--   <span class="site-footer-owner"><a href="">Char2Wav</a> is maintained by <a href="https://josesotelo.com">Jose Sotelo</a>.</span>
+ --></footer>
 
 
   </section>
