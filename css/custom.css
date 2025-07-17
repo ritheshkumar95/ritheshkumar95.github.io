@@ -92,14 +92,20 @@ a:hover {
 }
 
 .pub-image {
-    height: 120px;
+    min-height: 120px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10px 0;
 }
 
 .pub-image img {
-    max-height: 110px;
+    max-height: 140px;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
 }
 
 .pub-venue {

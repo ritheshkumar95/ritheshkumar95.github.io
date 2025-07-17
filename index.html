@@ -73,18 +73,79 @@
             <div class="one columns">&nbsp;</div>
             <div class="eight columns intro">
                 <p>
-                    Hello! I am Rithesh Kumar, an AI researcher with expertise in deep learning and generative modeling. 
-                    Currently, I am a Research Scientist and member of the Audio Research Group at <a href="https://research.adobe.com/">Adobe Research</a>.
-                    
-                    <br><br>
-                    Previously, I was the Technical Lead for the Overdub Research team at <a
-                        href="https://www.descript.com">Descript Inc.</a> In this time, I built and shipped 4+ text-to-speech models behind the
-                        flagship <a href="https://www.descript.com/overdub">Overdub</a> feature capable of ultra-realistic voice cloning and
-                        performing corrections on recordings through text. Recently, I also led the development of the
-                        <a href="https://www.descript.com/regenerate"> Regenerate </a>feature that leverages instant voice cloning technology to make bad edits sound seamless and natural.
+                Hello, I am Rithesh Kumar, a Senior Research Scientist on the Speech AI team at <a
+                    href="https://research.adobe.com/">Adobe Research</a>.
+                I lead speech generation research focused on controllable text-to-speech synthesis, automatic dubbing, and speech
+                editing. My work centers on
+                scaling diffusion models and developing efficient distillation algorithms for multilingual audio generation.
+
+                <br><br>
+                Previously, I was Technical Lead for Audio Research at
+                <a href="https://www.descript.com">Descript Inc.</a>, where I built and shipped 4+ text-to-speech models powering the
+                flagship <a href="https://www.descript.com/overdub">Overdub</a> and <a
+                    href="https://www.descript.com/regenerate">Regenerate</a> features—enabling ultra-realistic voice cloning and
+                text-based audio corrections.
                 </p>
 
-                <p> Currrently, I live in Toronto, Ontario 🇨🇦.</p>
+                <p>As a firm believer in the <a href="https://www.cs.utexas.edu/~eunsol/courses/data/bitter_lesson.pdf">bitter lesson</a>, my research goal is to develop scalable multi-modal models that bridge the reasoning and general intelligence of LLMs - with diffusion models that are able to synthesize natural signals like audio, video, and images at the highest quality.
+
+                <p>Currrently, I live in Toronto, Ontario 🇨🇦.</p>
+
+                <h5>Tech Transfers</h5>
+                <hr />
+
+                <div class="row publication">
+                    <div class="pub-image four columns">
+                        <img src="img/text-to-avatar.png">
+                    </div>
+                    <div class="pub-desc eight columns">
+                        <span class="pub-title"><a href="https://firefly.adobe.com/inspire/text-to-avatar">Firefly/Text-to-Avatar</a></span>
+                
+                        <div class="pub-authors"> I developed audio diffusion models for voice translation, preserving speaker identity
+                            across 25+ languages and
+                            dialects with controllable accent synthesis.
+                        </div>
+                        <span class="pub-venue">Deployed in production (beta) in 2025 </span>
+                    </div>
+                </div>
+                <div class="row publication">
+                    <div class="pub-image four columns">
+                        <img src="img/translate-audio.png">
+                    </div>
+                    <div class="pub-desc eight columns">
+                        <span class="pub-title"><a href="https://firefly.adobe.com/upload/translate">Firefly/Translate Video and Audio</a></span>
+                
+                        <div class="pub-authors"> I developed audio diffusion models for voice translation, preserving speaker identity across 25+ languages and
+                        dialects with controllable accent synthesis.
+                        </div>
+                        <span class="pub-venue">Deployed in production (GA) early 2025 </span>
+                    </div>
+                </div>
+                <div class="row publication">
+                    <div class="pub-image four columns">
+                        <img src="img/regenerate.png">
+                    </div>
+                    <div class="pub-desc eight columns">
+                        <span class="pub-title"><a href="https://www.descript.com/regenerate">Descript/Regenerate</a></span>
+                
+                        <div class="pub-authors">I developed the Audio Codec, Audio Language Models and voice cloning technology that power Regenerate, enabling users to turn awkward
+                        audio cuts into smooth, natural-sounding edits.
+                        </div>
+                        <span class="pub-venue">Deployed in production in 2023 </span>
+                    </div>
+                </div>
+                <div class="row publication">
+                    <div class="pub-image four columns">
+                        <img src="img/ai-voices.png">
+                    </div>
+                    <div class="pub-desc eight columns">
+                        <span class="pub-title"><a href="https://www.descript.com/ai-voices">Descript/AI Voices</a></span>
+                
+                        <div class="pub-authors"> I developed and shipped 4+ research models behind the flagship Overdub feature (now AI Voices), capable of voice cloning and speech editing at full 44.1 KHz resolution.
+                        </div>
+                        <span class="pub-venue">First deployed in production in 2018 </span>
+                    </div>
+                </div>
 
                 <h5>Education</h5>
                 <hr />
@@ -111,8 +172,19 @@
                 </p>
                 </p>
 
-                <h5>Publications</h5>
+                <h5>Select Publications</h5>
                 <hr />
+                <div class="row publication">
+                    <div class="pub-image four columns">
+                        <img src="img/dmospeech.png">
+                    </div>
+                    <div class="pub-desc eight columns">
+                        <span class="pub-title"><a href="https://arxiv.org/abs/2410.11097">DMOSpeech: Direct Metric Optimization via Distilled Diffusion Model in Zero-Shot Speech Synthesis</a></span>
+                
+                        <div class="pub-authors">Yingahao Aaron Li, <span class="fw6">Rithesh Kumar</span>, Zeyu Jin</div>
+                        <span class="pub-venue">Poster Presentation - ICML 2025 </span>
+                    </div>
+                </div>
                 <div class="row publication">
                     <div class="pub-image four columns">
                         <img src="img/rvqgan.png">
@@ -157,21 +229,6 @@
 
                 <div class="row publication">
                     <div class="pub-image four columns">
-                        <img src="img/nugan.png">
-                    </div>
-                    <div class="pub-desc eight columns">
-                        <span class="pub-title"><a href="https://arxiv.org/abs/2010.11362">NU-GAN: High Resolution
-                                Neural Upsampling With GANs</a></span>
-                        <div class="pub-authors"><span class="fw6">Rithesh Kumar</span>, Kundan Kumar, Vicki Anand,
-                            Yoshua Bengio,
-                            Aaron Courville
-                        </div>
-                        <!-- <span class="pub-venue">Hosted at Arxiv</span> -->
-                    </div>
-                </div>
-
-                <div class="row publication">
-                    <div class="pub-image four columns">
                         <img src="img/melgan.png">
                     </div>
                     <div class="pub-desc eight columns">
@@ -186,38 +243,6 @@
                     </div>
                 </div>
 
-                <div class="row publication">
-                    <div class="pub-image four columns">
-                        <img src="img/ebm.png">
-                    </div>
-                    <div class="pub-desc eight columns">
-                        <span class="pub-title"><a href="https://arxiv.org/abs/1901.08508">Maximum Entropy
-                                Generators
-                                for Energy-based Models</a></span>
-                        <div class="pub-authors"><span class="fw6">Rithesh Kumar</span>, Sherjil Ozair, Anirudh
-                            Goyal,
-                            Aaron Courville, Yoshua Bengio
-                        </div>
-                        <span class="pub-venue">Masters Thesis</span>
-                    </div>
-                </div>
-
-                <div class="row publication">
-                    <div class="pub-image four columns">
-                        <img src="img/piano_roll.png">
-                    </div>
-                    <div class="pub-desc eight columns">
-                        <span class="pub-title"><a href="https://arxiv.org/abs/1811.07426">Harmonic Recomposition
-                                using
-                                Conditional Autoregressive Modeling</a></span>
-                        <div class="pub-authors">Kyle Kastner, <span class="fw6">Rithesh Kumar</span>,
-                            Tim Coojimans, Aaron Courville
-                        </div>
-                        <span class="pub-venue">Poster Presentation - Joint Workshop on Machine Learning for Music
-                            (ICML
-                            2018)</span>
-                    </div>
-                </div>
                 <div class="row publication">
                     <div class="pub-image four columns">
                         <img src="img/obamanet.png">
