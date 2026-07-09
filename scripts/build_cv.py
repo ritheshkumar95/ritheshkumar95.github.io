@@ -294,6 +294,12 @@ story.append(
 story.extend(section_header("Shipped Products"))
 products = [
     (
+        "GPT Live 1",
+        "2026",
+        "A new generation of voice models for natural human-AI interaction, now powering ChatGPT Voice.",
+        "https://openai.com/index/introducing-gpt-live/",
+    ),
+    (
         "Adobe Firefly Translate Video and Audio, Text-to-Avatar",
         "2025",
         "Speaker-preserving voice translation for multilingual media workflows, plus voice generation for animated avatars.",
